@@ -1,0 +1,24 @@
+{
+  "name": "and-zero-be",
+  "version": "1.0.0",
+  "description": "AND Zero back end ",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alec-hamilton/and-zero-be.git"
+  },
+  "author": "Alec & Sunya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alec-hamilton/and-zero-be/issues"
+  },
+  "homepage": "https://github.com/alec-hamilton/and-zero-be#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "mysql": "^2.18.1"
+  }
+}
