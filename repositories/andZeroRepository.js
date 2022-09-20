@@ -15,3 +15,16 @@ const getAndZero = async () => {
 
     return await andZeroDbConnection.query(sqlQuery);
 }
+
+const getUserStats = async (email, club, date, cupsPledged) => {
+    console.log('Repository: getUserStats');
+
+    const sqlQuery = 'INSERT INTO users(club, email, pledge_date, cups_day)'
+                    + 'VALUES' + `('${club}', '${email}', '${date}', '${cupsPledged}')`
+                    + ';';
+
+    return await andZeroDbConnection.query(sqlQuery);
+}
+
+module.exports.getAndZero = getAndZero;
+module.exports.getUserStats = getUserStats;
