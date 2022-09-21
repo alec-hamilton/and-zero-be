@@ -11,5 +11,11 @@ const getUserStats = async (email, club, date, cupsPledged) => {
     // add a .then() to do any further logic with the cupsPledged.
 }
 
+const getClubs = async () => {
+    console.log('Service: getClubs');
+    return await andZeroRepository.getClubs();
+}
+
 module.exports.getAndZero = getAndZero;
 module.exports.getUserStats = getUserStats;
+module.exports.getClubs = getClubs;
