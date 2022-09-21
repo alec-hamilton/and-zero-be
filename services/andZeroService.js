@@ -7,8 +7,15 @@ const getAndZero = async () => {
 
 const getUserStats = async (email, club, date, cupsPledged) => {
     console.log('Service: getUserStats');
-    return await andZeroRepository.getUserStats(email, club, date, cupsPledged);
+
+    let duplicateEmail = andZeroRepository.checkEmail(email).then();
+
+    duplicateEmail.then()
+    console.log(duplicateEmail);
+
+    return await andZeroRepository.getUserStats(email, club, date, cupsPledged)
     // add a .then() to do any further logic with the cupsPledged.
+
 }
 
 const getClubs = async () => {

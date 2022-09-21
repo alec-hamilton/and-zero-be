@@ -36,6 +36,17 @@ const getClubs = async () => {
     return await andZeroDbConnection.query(sqlQuery);
 }
 
+const checkEmail = async (email) => {
+    console.log('Repository: checkEmail');
+
+    // SELECT * FROM users WHERE username = '{$username}'
+
+    const sqlQuery = `SELECT * FROM users WHERE email = '${email}';`
+
+    return await andZeroDbConnection.query(sqlQuery);
+}
+
 module.exports.getAndZero = getAndZero;
 module.exports.getUserStats = getUserStats;
 module.exports.getClubs = getClubs;
+module.exports.checkEmail = checkEmail;
