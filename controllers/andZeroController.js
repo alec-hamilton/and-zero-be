@@ -19,6 +19,20 @@ const getClubs = (req, res) => {
     andZeroService.getClubs().then((allClubs) => res.json(allClubs));
 }
 
+const getCups = (req, res) => {
+    console.log('Controller: getCups');
+    andZeroService.getCups().then((allCups) => res.json(allCups));
+}
+
+const getCupsPerClub = (req, res) => {
+    let clubID = req.params.clubID;
+    console.log('Controller: getCupsPerClub' + clubID);
+    andZeroService.getCupsPerClub.then((cupsPerClub) => res.json(cupsPerClub));
+
+}
+
 module.exports.getAndZero = getAndZero;
 module.exports.getUserStats = getUserStats;
 module.exports.getClubs = getClubs;
+module.exports.getCups = getCups;
+module.exports.getCupsPerClub = getCupsPerClub;
