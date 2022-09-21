@@ -26,9 +26,8 @@ const getCups = (req, res) => {
 
 const getCupsPerClub = (req, res) => {
     let clubID = req.params.clubID;
-    console.log('Controller: getCupsPerClub' + clubID);
-    andZeroService.getCupsPerClub.then((cupsPerClub) => res.json(cupsPerClub));
-
+    console.log('Controller: getCupsPerClub, clubID: ' + clubID);
+    andZeroService.getCupsPerClub(clubID).then((cupsPerClub) => res.json(cupsPerClub));
 }
 
 module.exports.getAndZero = getAndZero;
