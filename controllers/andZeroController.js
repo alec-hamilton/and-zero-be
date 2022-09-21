@@ -14,6 +14,11 @@ const getUserStats = (req, res) => {
     andZeroService.getUserStats(email, club, date, cupsPledged).then((stats) => res.json(stats));
 }
 
+const getClubs = (req, res) => {
+    console.log('Controller: getClubs');
+    andZeroService.getClubs().then((allClubs) => res.json(allClubs));
+}
+
 module.exports.getAndZero = getAndZero;
 module.exports.getUserStats = getUserStats;
-
+module.exports.getClubs = getClubs;

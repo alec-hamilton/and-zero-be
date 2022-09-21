@@ -1,9 +1,9 @@
 const andZeroController = require('../controllers/andZeroController');
-const cors = require('cors');
 
 const routes = (app) => {
-    app.get('/andzero', cors(), andZeroController.getAndZero);
-    app.post('/pledge', cors(), andZeroController.getUserStats);
+    app.get('/andzero', andZeroController.getAndZero);
+    app.post('/pledge', andZeroController.getUserStats);
+    app.get('/clubs', andZeroController.getClubs);
 }
 
 module.exports = routes;

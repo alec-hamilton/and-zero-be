@@ -26,5 +26,16 @@ const getUserStats = async (email, club, date, cupsPledged) => {
     return await andZeroDbConnection.query(sqlQuery);
 }
 
+const getClubs = async () => {
+    console.log('Repository: getClubs');
+
+    const sqlQuery = 'SELECT `clubs`.`id`, `clubs`.`club`'
+                    + 'FROM `clubs`'
+                    + ';';
+
+    return await andZeroDbConnection.query(sqlQuery);
+}
+
 module.exports.getAndZero = getAndZero;
 module.exports.getUserStats = getUserStats;
+module.exports.getClubs = getClubs;
