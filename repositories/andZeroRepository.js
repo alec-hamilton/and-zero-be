@@ -36,6 +36,30 @@ const getClubs = async () => {
     return await andZeroDbConnection.query(sqlQuery);
 }
 
+const getCups = async () => {
+    console.log('Repository: getCups');
+
+    const sqlQuery = 'SELECT `users`.`pledge_date`, `users`.`cups_day`'
+                    + 'FROM `users`'
+                    + ';';
+
+    return await andZeroDbConnection.query(sqlQuery);
+}
+
+const getCupsPerClub = async (clubID) => {
+    console.log('Repository: getCupsPerClub, clubID: ' + clubID);
+
+    const sqlQuery = 'SELECT `users`.`pledge_date`, `users`.`cups_day`'
+                    + 'FROM `users`'
+                    + 'WHERE `club` = '
+                    + `${clubID}`
+                    + ';';
+
+    return await andZeroDbConnection.query(sqlQuery);
+}
+
 module.exports.getAndZero = getAndZero;
 module.exports.getUserStats = getUserStats;
 module.exports.getClubs = getClubs;
+module.exports.getCups = getCups;
+module.exports.getCupsPerClub = getCupsPerClub;
