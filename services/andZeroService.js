@@ -26,13 +26,19 @@ const getUserStats = async (email, club, date, cupsPledged) => {
 
     if (result.error) {
         console.log(result.error);
-        return result.error.details[0].message;
+        return {
+            message: result.error.details[0].message,
+            status: 400,
+        };
     }
 
     const emailFromDb = await andZeroRepository.checkEmail(email);
 
     if (emailFromDb.length > 0) {
-        return 'email already exists.';
+        return {
+            message: 'email already exists.',
+            status: 400,
+        };
     }
 
     return await andZeroRepository.getUserStats(email, club, date, cupsPledged);
