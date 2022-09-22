@@ -31,7 +31,7 @@ const getUserStats = async (email, club, date, cupsPledged) => {
 
     const emailFromDb = await andZeroRepository.checkEmail(email);
 
-    if (emailFromDb.length > 0){
+    if (emailFromDb.length > 0) {
         return 'email already exists.';
     }
 
