@@ -11,7 +11,15 @@ const getUserStats = (req, res) => {
     let club = req.body.club;
     let date = req.body.date;
     let cupsPledged = req.body.cupsPledged;
-    andZeroService.getUserStats(email, club, date, cupsPledged).then((stats) => res.json(stats));
+    andZeroService.getUserStats(email, club, date, cupsPledged).then((stats) => {
+
+        if (!stats.status) {
+            res.status = 200;
+        } else {
+            res.status(stats.status);
+        }
+        res.json(stats);
+    });
 }
 
 const getClubs = (req, res) => {
