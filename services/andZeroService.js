@@ -15,7 +15,7 @@ const getUserStats = async (email, club, date, cupsPledged) => {
         club: Joi.number().integer().required(),
         date: Joi.date().required(),
         cupsPledged: Joi.number().integer().required(),
-    })
+    });
 
     const result = schema.validate({
         email: email,
@@ -29,7 +29,13 @@ const getUserStats = async (email, club, date, cupsPledged) => {
         return result.error.details[0].message;
     }
 
-    return await andZeroRepository.getUserStats(email, club, date, cupsPledged)
+    const emailFromDb = await andZeroRepository.checkEmail(email);
+
+    if (emailFromDb.length > 0){
+        return 'email already exists.';
+    }
+
+    return await andZeroRepository.getUserStats(email, club, date, cupsPledged);
 }
 
 const getClubs = async () => {

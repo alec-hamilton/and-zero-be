@@ -58,8 +58,21 @@ const getCupsPerClub = async (clubID) => {
     return await andZeroDbConnection.query(sqlQuery);
 }
 
+const checkEmail = async (email) => {
+    console.log('Repository: checkEmail, email: ' + email);
+
+    const sqlQuery = 'SELECT `users`.`email`'
+                    + 'FROM `users`'
+                    + 'WHERE `email` = '
+                    + `'${email}'`
+                    + ';';
+
+    return await andZeroDbConnection.query(sqlQuery);
+}
+
 module.exports.getAndZero = getAndZero;
 module.exports.getUserStats = getUserStats;
 module.exports.getClubs = getClubs;
 module.exports.getCups = getCups;
 module.exports.getCupsPerClub = getCupsPerClub;
+module.exports.checkEmail = checkEmail;
