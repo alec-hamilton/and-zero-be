@@ -1,3 +1,5 @@
+const Joi = require('joi');
+
 const andZeroRepository = require('../repositories/andZeroRepository');
 
 const getAndZero = async () => {
@@ -7,7 +9,27 @@ const getAndZero = async () => {
 
 const getUserStats = async (email, club, date, cupsPledged) => {
     console.log('Service: getUserStats');
-    return await andZeroRepository.getUserStats(email, club, date, cupsPledged);
+
+    const schema = Joi.object({
+        email: Joi.string().email().required(),
+        club: Joi.number().integer().required(),
+        date: Joi.date().required(),
+        cupsPledged: Joi.number().integer().required(),
+    })
+
+    const result = schema.validate({
+        email: email,
+        club: club,
+        date: date,
+        cupsPledged: cupsPledged,
+    });
+
+    if (result.error) {
+        console.log(result.error);
+        return result.error.details[0].message;
+    }
+
+    return await andZeroRepository.getUserStats(email, club, date, cupsPledged)
 }
 
 const getClubs = async () => {
